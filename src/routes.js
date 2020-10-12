@@ -1,8 +1,8 @@
 // const express = require('express');
 // const router = express.Router();
 
-const  DocumentController = require('../controllers').classroom;
-const  CategoryController = require('../controllers');
+//const  DocumentController = require('./controllers');
+const  CategoryController = require('./controllers/CategoryController');
 
 module.exports = (app) => {
     app.get('/api/all', 
@@ -17,3 +17,4 @@ module.exports = (app) => {
 // router.get('/api/all', CategoryController.index);
 
 // module.exports  = router;
+

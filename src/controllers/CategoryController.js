@@ -1,14 +1,14 @@
-const  {Card, Card_currency,Rate_variation} = require('../models')
-const uuidv1 = require('uuid/v1');
+const  {KycDocumentType, KycCategory} = require('../models')
+//const uuidv1 = require('uuid/v1');
 const  multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-     async create(req,res){
+     async index(req,res){
          try{
              const categories = await KycCategory.findAll({ include: KycDocumentType });
-             dd(categories);
+             console.log(categories);
          res.status(200).json(card);
          }catch(err){
              console.log(err);

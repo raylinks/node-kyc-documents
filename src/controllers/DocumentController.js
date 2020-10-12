@@ -1,5 +1,5 @@
 const  {Card, Card_currency,Rate_variation} = require('../models')
-const uuidv1 = require('uuid/v1');
+//const uuidv1 = require('uuid/v1');
 const  multer = require('multer');
 const fs = require('fs');
 const path = require('path');
