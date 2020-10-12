@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     });
         kycDocumentType.associate = function(models){
         kycDocumentType.hasMany(models.KycDocument);
+        kycDocumentType.belongsTo(models.KycCategory);
       };  
     return kycDocumentType;
 };
