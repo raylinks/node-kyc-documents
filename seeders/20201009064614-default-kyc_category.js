@@ -11,7 +11,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('KycCategory', [{
+    await queryInterface.bulkInsert('KycCategories', [{
       name : 'Email Verification',
       slug : 'email_verification',
       requires_upload : '0',
