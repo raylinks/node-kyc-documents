@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const { sequelize } = require('./models/index');
 const config =require('./config/config');
+const jwt = require('jsonwebtoken');
 const app = express();
 const server = http.createServer(app);
 require('./routes')(app)
