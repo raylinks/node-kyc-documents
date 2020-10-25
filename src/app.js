@@ -9,7 +9,15 @@ const config =require('./config/config');
 const jwt = require('jsonwebtoken');
 const app = express();
 const server = http.createServer(app);
+
+
+app.use(morgan('combined'));
+//app.use(pg());
+app.use(bodyParser.json());
+app.use(cors());
+
 require('./routes')(app)
+
 
 sequelize.sync()
     .then(() => {

@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         userData.hasMany(models.KycDocument);
     };
 
-     Model.beforeSave(async (user, options) => {
+     userData.beforeSave(async (user, options) => {
         let err;
         if (user.changed('password')){
             let salt, hash
@@ -34,11 +34,11 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
 
-    Model.prototype.comparePassword = function(password){
+    userData.prototype.comparePassword = function(password){
         return bcrypt.compareAsync(password, this.password)
     }
 
-    Model.prototype.comparePassword = async function (pw) {
+    userData.prototype.comparePassword = async function (pw) {
         let err, pass
         if(!this.password) TE('password not set');
 
@@ -50,12 +50,12 @@ module.exports = (sequelize, DataTypes) => {
         return this;
     }
 
-    Model.prototype.getJWT = function () {
+    userData.prototype.getJWT = function () {
         let expiration_time = parseInt(CONFIG.jwt_expiration);
         return "Bearer "+jwt.sign({user_id:this.id}, CONFIG.jwt_encryption, {expiresIn: expiration_time});
     };
 
-    Model.prototype.toWeb = function (pw) {
+    userData.prototype.toWeb = function (pw) {
         let json = this.toJSON();
         return json;
     };

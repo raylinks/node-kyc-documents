@@ -7,7 +7,7 @@ module.exports = {
          try{
 
             const user = await User.create(req.body);
-          
+            
     
             return res.status(201).json({
                 data:user,

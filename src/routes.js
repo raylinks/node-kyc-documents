@@ -2,6 +2,7 @@ const  CategoryController = require('./controllers/CategoryController');
 const  DocumentTypeController = require('./controllers/DocumentTypeController');
 const  DocumentController = require('./controllers/DocumentController');
 const  RegisterController = require('./controllers/RegisterController');
+const  LoginController = require('./controllers/LoginController');
 
 module.exports = (app) => {
     app.get('/api/all', 
@@ -15,4 +16,7 @@ module.exports = (app) => {
 
    app.post('/api/register/create', 
        RegisterController.register)
+
+   app.post('/api/auth/login', 
+       LoginController.login)
 }
