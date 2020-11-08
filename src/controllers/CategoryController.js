@@ -7,13 +7,9 @@ const path = require('path');
 module.exports = {
      async index(req,res){
          try{
-             const categories = await KycDocumentType.findAll({ include: KycCategory });
+             const categories = await KycDocumentType.findAll({ include: KycCategory ,attributes: ['name', 'status']});
              console.log(categories);
-            //  include:[
-            //         {
-            //             model: Song
-            //         }
-            //     ]
+          
         // res.status(200).json(card);
          }catch(err){
              console.log(err);
