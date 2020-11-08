@@ -1,10 +1,19 @@
 const  {User} = require('../models')
 const fs = require('fs');
 const path = require('path');
+const {body} = require('express-validator/check');
+const {validationResult} = require('express-validator/check');
+//const { check, validationResult } = require('express-validator');
+
 
 module.exports = {
-     async register(req,res){
+     async register(req,res, next){
          try{
+           const errors = validationResult(req);
+           if(!errors.isEmpty()){
+             res.status(422).json({errors:errors.array()});
+             return;
+           }
 
             const user = await User.create(req.body);
             
@@ -21,6 +30,21 @@ module.exports = {
                    //error:' this email address is already in use'  
            //  })
           }
+        },
+
+         validate(method)  {
+          switch(method){
+            case 'register':{
+              return[
+                body('firstname','firstname doesnot exist in our database').exists().isLength({ min: 5})] ,
+                body('email','this email does not exist').exists().isEmail(),
+                body('phone','this phone does not exist').exists().isInt(),
+                body('status').isIn(['active','inactive'])
+              
+            }
+          }
         }
+
+
     }
      

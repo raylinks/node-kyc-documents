@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "postgres",
-    "password": "History99",
+    "password": "laravel88",
     "database": "kycdocument",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "root",
-    "password": "History99",
+    "password": "laravel88",
     "database": "kycdocument",
     "host": "127.0.0.1",
     "dialect": "mysql"
